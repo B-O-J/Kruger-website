@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kruger Games & Xchange</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<h2>KRUGER XCHANGE</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Marketplace</a></li>
+<li><a href="#">Sell</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>BUY | SELL | SWAP</h1>
+
+<p>Games • Jerseys • Cars • Giftcards • Crypto</p>
+
+<button onclick="openWhatsApp()">Order on WhatsApp</button>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products">
+
+<h2>Featured Deals</h2>
+
+<div class="product-grid">
+
+<div class="product">
+
+<h3>PlayStation 5</h3>
+
+<p>Next-gen gaming console</p>
+
+<button onclick="orderItem('PlayStation 5')">Order via WhatsApp</button>
+
+<button onclick="payNow(350000)">Buy Now</button>
+
+</div>
+
+
+<div class="product">
+
+<h3>Football Jerseys</h3>
+
+<p>Club & National Team Jerseys</p>
+
+<button onclick="orderItem('Football Jersey')">Order via WhatsApp</button>
+
+<button onclick="payNow(25000)">Buy Now</button>
+
+</div>
+
+
+<div class="product">
+
+<h3>Gift Card Trading</h3>
+
+<p>Amazon • Apple • Steam</p>
+
+<button onclick="orderItem('Gift Card Trade')">Trade via WhatsApp</button>
+
+</div>
+
+
+<div class="product">
+
+<h3>Crypto Trading</h3>
+
+<p>BTC • ETH • USDT</p>
+
+<button onclick="orderItem('Crypto Trade')">Trade via WhatsApp</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SELL FORM -->
+
+<section class="sell">
+
+<h2>Sell or Swap Your Item</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="text" placeholder="Item Category">
+
+<input type="text" placeholder="Item Description">
+
+<input type="number" placeholder="Price">
+
+<button type="submit">Submit Item</button>
+
+</form>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+<h2>Contact</h2>
+
+<p>WhatsApp: 07038366820</p>
+
+<p>Phone: 08154595293</p>
+
+<p>Twitter (X): @iplaythegame17</p>
+
+<p>We deliver nationwide</p>
+
+</section>
+
+
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a href="https://wa.me/2347038366820" class="whatsapp-float">
+
+Chat on WhatsApp
+
+</a>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function openWhatsApp(){
+
+window.open("https://wa.me/2347038366820");
+
+}
+
+
+function orderItem(product){
+
+let message = "Hello, I want to order: " + product;
+
+let url = "https://wa.me/2347038366820?text=" + encodeURIComponent(message);
+
+window.open(url);
+
+}
+
+
+function payNow(amount){
+
+let handler = PaystackPop.setup({
+
+key: 'YOUR_PAYSTACK_PUBLIC_KEY',
+
+email: 'customer@email.com',
+
+amount: amount * 100,
+
+currency: "NGN",
+
+callback: function(response){
+
+alert("Payment successful! Ref: " + response.reference);
+
+},
+
+onClose: function(){
+
+alert("Transaction cancelled");
+
+}
+
+});
+
+handler.openIframe();
+
+}
+
+</script>
+
+</body>
+
+</html>
