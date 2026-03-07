@@ -159,7 +159,7 @@ border-radius:10px;
 .product button{
 margin-top:10px;
 padding:10px;
-border:none;
+border-radius:10px;
 background:#f7d36b;
 cursor:pointer;
 }
